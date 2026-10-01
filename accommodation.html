@@ -27,7 +27,17 @@
         <a href="speakers.html">Speakers</a>
         <a href="registration.html">Registration</a>
         <a href="abstract.html">Abstract</a>
-        <a href="venue.html">Visit</a>
+        <div class="nav-dropdown">
+          <a class="nav-dropdown-trigger" href="venue.html">
+            Visit
+          </a>
+          <div class="nav-dropdown-menu" aria-label="Visit submenu">
+            <a href="venue.html">Venue</a>
+            <a href="transportation.html">Transportation</a>
+            <a href="accommodation.html">Accommodation</a>
+            <a href="local-information.html">Local Information</a>
+          </div>
+        </div>
         <a href="organization.html">Organization</a>
         <a href="code-of-conduct.html">Code of Conduct</a>
       </nav>
@@ -35,90 +45,241 @@
   </header>
 
   <main class="page-main">
-
     <section class="page-title">
       <div class="container">
-        <p class="eyebrow">Stay in Daejeon</p>
-
+        <p class="eyebrow">Travel information</p>
         <h1>Accommodation</h1>
-
-        <p>
-          Hotels near the conference venue at KAIST will be
-          listed below with location and booking information.
-        </p>
       </div>
     </section>
 
-
     <section class="section">
       <div class="container">
+        <section class="info-box info-box--feature venue-accommodation-box">
+          <h2 class="info-box__title">Nearby Accommodation Options</h2>
+          <p>
+            The accommodation options below are provided for reference only.
+            All listed hotels are generally located <strong>within approximately
+              10–15 minutes of the conference venue by taxi</strong>, depending on
+            traffic conditions.
+          </p>
+          <p>
+            Select <strong>a hotel name to visit its official website</strong>, or select
+            <strong>an address to view the location on Google Maps</strong>. Participants
+            are responsible for making their own reservations directly with
+            the hotel or through their preferred booking platform. Room
+            availability, rates, and booking conditions may vary.
+          </p>
+        </section>
 
-        <div class="info-box info-box--note">
-          The recommended hotel list and any conference booking
-          information will be updated when arrangements are
-          confirmed.
-        </div>
+        <div class="hotel-card-grid">
+          <!-- Hotel Onoma -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/hotel-onoma.jpg" alt="Hotel Onoma, Daejeon" loading="lazy">
+            </div>
 
-
-        <div class="hotel-table-wrapper" role="region" aria-label="Recommended hotels" tabindex="0">
-          <table class="hotel-table">
-            <thead>
-              <tr>
-                <th scope="col">Hotel</th>
-                <th scope="col">Distance from Venue</th>
-                <th scope="col">Booking / Website</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              <tr>
-                <td class="hotel-list-placeholder" colspan="3">
-                  The recommended hotel list will be updated soon.<br>
-                </td>
-              </tr>
-
-              <!-- 호텔 정보가 준비되면 아래 형식으로 추가합니다.
-
-            <tr>
-              <th scope="row">
-                Hotel Name
-              </th>
-
-              <td>
-                Approximately 10 minutes by taxi
-              </td>
-
-              <td>
-                <a
-                  href="https://example.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Hotel Website
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://www.marriott.com/en-us/hotels/cjjak-hotel-onoma-daejeon-autograph-collection/overview/"
+                  target="_blank" rel="noopener noreferrer">
+                  Hotel Onoma, Daejeon,<br>
+                  Autograph Collection
                 </a>
-              </td>
-            </tr>
+              </h3>
 
-            -->
-            </tbody>
-          </table>
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Expo / Doryong</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Onoma+Daejeon&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      1 Expo-ro, Yuseong-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <!-- LOTTE City Hotel -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/lotte-city-hotel-daejeon.jpg" alt="LOTTE City Hotel Daejeon" loading="lazy">
+            </div>
+
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://www.lottehotel.com/daejeon-city/en" target="_blank" rel="noopener noreferrer">
+                  LOTTE City Hotel Daejeon
+                </a>
+              </h3>
+
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Expo / Doryong</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=LOTTE+City+Hotel+Daejeon&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      33 Expo-ro 123beon-gil, Yuseong-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+
+          <!-- Hotel ICC -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/hotel-icc.jpg" alt="Hotel ICC" loading="lazy">
+            </div>
+
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://be5.wingsbooking.com/ICC1?lang=ENG" target="_blank" rel="noopener noreferrer">
+                  Hotel ICC
+                </a>
+              </h3>
+
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Expo / Doryong</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+ICC+Daejeon&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      55 Expo-ro 123beon-gil, Yuseong-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <!-- Hotel Interciti -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/hotel-interciti.jpg" alt="Hotel Interciti" loading="lazy">
+            </div>
+
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://www.hotelinterciti.com/english/main" target="_blank" rel="noopener noreferrer">
+                  Hotel Interciti
+                </a>
+              </h3>
+
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Yuseong Hot Springs</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Interciti+Daejeon&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      92 Oncheon-ro, Yuseong-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <!-- Ramada -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/ramada-daejeon.jpg" alt="Ramada by Wyndham Daejeon" loading="lazy">
+            </div>
+
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://www.ramadadaejeon.com/" target="_blank" rel="noopener noreferrer">
+                  Ramada by Wyndham Daejeon
+                </a>
+              </h3>
+
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Yuseong Hot Springs</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Ramada+by+Wyndham+Daejeon&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      127 Gyeryong-ro, Yuseong-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+
+          <!-- Toyoko Inn -->
+          <article class="hotel-card">
+            <div class="hotel-card-image">
+              <img src="images/hotels/toyoko-inn-daejeon.jpg" alt="Toyoko Inn Daejeon Government Complex"
+                loading="lazy">
+            </div>
+
+            <div class="hotel-card-body">
+              <h3 class="hotel-card-title">
+                <a href="https://www.toyoko-inn.com/eng/search/detail/00234/" target="_blank" rel="noopener noreferrer">
+                  Toyoko Inn Daejeon<br>
+                  Government Complex
+                </a>
+              </h3>
+
+              <dl class="hotel-card-details">
+                <div>
+                  <dt>Area</dt>
+                  <dd>Dunsan / Government Complex</dd>
+                </div>
+
+                <div>
+                  <dt>Address</dt>
+                  <dd>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Toyoko+Inn+Daejeon+Government+Complex&amp;hl=en"
+                      target="_blank" rel="noopener noreferrer">
+                      13 Dunsanjung-ro 134beon-gil, Seo-gu, Daejeon
+                    </a>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
         </div>
-
-        <aside class="dev-note">
-          <a class="hotel-reference-link" href="https://www.mpi-bremen.de/en/ICoN9-Conference/Accommodation.html"
-            target="_blank" rel="noopener noreferrer">
-            Link: Bremen 기준 accommodation information
-          </a><br>
-          위 링크처럼 저희도 숙소 제휴 계획이 있으면 추후에 추가하면 될 것 같습니다.
-        </aside>
-
-
 
         <div class="page-actions">
           <a class="button secondary" href="venue.html">
             Back to Venue
           </a>
+          <a class="button secondary" href="registration.html">
+            Back to Registration
+          </a>
+
         </div>
+
 
       </div>
     </section>
