@@ -285,7 +285,6 @@ a[href^="mailto:"]:visited {
 .site-nav a[aria-current],
 .site-nav a[aria-current]:hover {
   color: var(--color-blue);
-  font-weight: 750;
 }
 
 .nav-toggle {
@@ -306,6 +305,97 @@ a[href^="mailto:"]:visited {
   margin: 5px auto;
   background: var(--color-navy);
 }
+
+/* Header: dropdown */
+.site-header,
+.header-inner,
+.site-nav {
+  overflow: visible;
+}
+
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* 메뉴 사이에서 마우스가 빠지는 것을 방지하는 공간 */
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: -12px;
+  left: -12px;
+  height: 14px;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* 기본 상태에서는 드롭다운 숨김 */
+.nav-dropdown-menu {
+  position: absolute;
+  z-index: 100;
+  top: calc(100% + 12px);
+  left: 50%;
+
+  display: grid;
+  min-width: 210px;
+  padding: 8px;
+
+  background: var(--color-bg, #ffffff);
+  border: 1px solid var(--color-border, #d5e0ea);
+  border-radius: var(--radius-sm, 8px);
+  box-shadow: var(--shadow-card, 0 12px 30px rgb(0 59 113 / 14%));
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, 8px);
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 마우스오버 또는 키보드 포커스 시 표시 */
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+/* 드롭다운 안의 링크 */
+.site-nav .nav-dropdown-menu a {
+  display: block;
+  padding: 11px 14px;
+
+  color: var(--color-text);
+  border-radius: 5px;
+
+  font-size: 0.90rem;
+  font-weight: 600;
+  line-height: 1.10;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav .nav-dropdown-menu a:hover,
+.site-nav .nav-dropdown-menu a:focus-visible {
+  color: var(--color-blue);
+  background: var(--color-bg-muted);
+}
+
+.site-nav .nav-dropdown:hover>.nav-dropdown-trigger,
+.site-nav .nav-dropdown:focus-within>.nav-dropdown-trigger {
+  color: var(--color-blue);
+}
+
 
 /* ================================================================
    05. SHARED PAGE TITLE — KAIST curved graphic motif
@@ -343,13 +433,21 @@ a[href^="mailto:"]:visited {
   z-index: 1;
 }
 
-.page-title>.container>p:last-of-type {
+/* .page-title>.container>p:last-of-type {
   max-width: 760px;
   margin-bottom: 0;
   color: var(--color-muted);
   font-size: 1.12rem;
 }
+ */
 
+/* .page-title p {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 1.12rem;
+}
+ */
 /* ================================================================
    06. BUTTONS
 ================================================================ */
@@ -950,6 +1048,92 @@ tr:last-child th {
   background: var(--color-bg-muted);
 }
 
+
+
+/* ================================================================
+   25. Program: temporary program overview
+================================================================ */
+
+
+.program-overview {
+  padding-top: 56px;
+  padding-bottom: 72px;
+}
+
+.program-status-card {
+  overflow: hidden;
+  max-width: 1120px;
+  margin: 0 auto;
+
+  background: var(--color-bg);
+  border: 1px solid var(--color-light-blue);
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 40px rgb(0 59 113 / 8%);
+}
+
+.program-status-content {
+  padding: 42px 46px;
+  background:
+    linear-gradient(135deg,
+      rgb(232 247 255 / 95%),
+      rgb(255 255 255 / 98%));
+}
+
+.program-status-content .section-label {
+  margin: 0 0 10px;
+}
+
+.program-status-content h2 {
+  margin: 0 0 18px;
+  color: var(--color-navy);
+}
+
+.program-status-content>p:not(.section-label) {
+  max-width: 850px;
+  margin: 0;
+  line-height: 1.75;
+}
+
+.program-status-content .program-status-note {
+  margin-top: 16px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.program-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0;
+}
+
+.program-facts>div {
+  padding: 25px 30px;
+  border-top: 1px solid var(--color-border);
+}
+
+.program-facts>div+div {
+  border-left: 1px solid var(--color-border);
+}
+
+.program-facts dt {
+  margin-bottom: 7px;
+  color: var(--color-blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.program-facts dd {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 1rem;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+
 /* ================================================================
    30. SPEAKERS — speakers.html
 ================================================================ */
@@ -1143,7 +1327,7 @@ tr:last-child th {
   letter-spacing: -0.025em;
 }
 
-.travel-content > h2 {
+.travel-content>h2 {
   margin-top: 20px;
 }
 
@@ -1221,12 +1405,12 @@ tr:last-child th {
   border-radius: var(--radius-md);
 }
 
-.destination-box > strong {
+.destination-box>strong {
   color: var(--color-navy);
   font-size: clamp(1rem, 2.2vw, 1.2rem);
 }
 
-.destination-box > p:last-child {
+.destination-box>p:last-child {
   margin-bottom: 0;
 }
 
@@ -1245,23 +1429,106 @@ tr:last-child th {
 
 /* 60-3. Accommodation */
 
-.hotel-table {
-  min-width: 720px;
+.hotel-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 40px;
 }
 
-.hotel-table th:first-child {
-  width: 32%;
+.hotel-card {
+  overflow: hidden;
+
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 30px rgb(0 59 113 / 7%);
 }
 
-.hotel-list-placeholder {
-  padding: 32px;
-  color: var(--color-muted);
-  text-align: center;
+.hotel-card-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--color-bg-muted);
 }
 
-.hotel-reference-link {
-  display: inline-block;
-  margin-top: 8px;
+.hotel-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hotel-card:hover .hotel-card-image img {
+  transform: scale(1.025);
+}
+
+.hotel-card-body {
+  padding: 26px 28px 30px;
+}
+
+.hotel-card-title {
+  margin: 0 0 24px;
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.hotel-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hotel-card-title a:hover,
+.hotel-card-title a:focus-visible {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 5px;
+}
+
+.hotel-card-details {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+}
+
+.hotel-card-details>div {
+  display: grid;
+  gap: 5px;
+}
+
+.hotel-card-details dt {
+  color: var(--color-blue);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hotel-card-details dd {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.55;
+}
+
+.hotel-card-details a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hotel-card-details a:hover,
+.hotel-card-details a:focus-visible {
+  color: var(--color-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.venue-accommodation-box {
+  margin-top: 0px;
+}
+
+.venue-accommodation-box p:last-child {
+  margin-bottom: 0;
 }
 
 /* 60-4. Local information */
@@ -1270,7 +1537,7 @@ tr:last-child th {
   margin-bottom: 64px;
 }
 
-.local-info-section > h2 {
+.local-info-section>h2 {
   margin: 0 0 26px;
 }
 
@@ -1535,6 +1802,50 @@ tr:last-child th {
     padding: 12px 4px;
   }
 
+  .nav-dropdown {
+    display: block;
+    width: 100%;
+  }
+
+  .nav-dropdown::after {
+    display: none;
+  }
+
+  .nav-dropdown-trigger {
+    width: 100%;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    top: auto;
+    left: auto;
+
+    display: grid;
+    min-width: 0;
+    width: 100%;
+    padding: 4px 0 8px 18px;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    transform: none;
+  }
+
+  .site-nav .nav-dropdown-menu a {
+    padding: 8px 0;
+    font-size: 0.9rem;
+  }
+
   .hero-grid,
   .two-column,
   .footer-grid {
@@ -1556,6 +1867,10 @@ tr:last-child th {
 
   .speaker-slide {
     flex-basis: clamp(180px, 55vw, 220px);
+  }
+
+  .hotel-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1586,6 +1901,29 @@ tr:last-child th {
     grid-template-columns: 1fr;
     gap: 22px;
   }
+
+  /* 여기 아래는 program 준비 후 삭제 */
+  .program-overview {
+    padding-top: 36px;
+    padding-bottom: 52px;
+  }
+
+  .program-status-content {
+    padding: 30px 24px;
+  }
+
+  .program-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .program-facts>div {
+    padding: 20px 24px;
+  }
+
+  .program-facts>div+div {
+    border-left: 0;
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -1666,6 +2004,15 @@ tr:last-child th {
 
   .speaker-slide-info p {
     font-size: 0.82rem;
+  }
+
+  .hotel-card-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .hotel-card-body {
+    padding: 22px 22px 26px;
   }
 }
 
