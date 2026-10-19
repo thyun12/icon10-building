@@ -1164,6 +1164,17 @@ tr:last-child th {
    40. REGISTRATION — registration.html
 ================================================================ */
 
+.registration-fee-table thead th {
+  padding: 10px 22px;
+  line-height: 1.2;
+}
+
+.registration-fee-table thead th[rowspan],
+.registration-fee-table thead tr:last-child th {
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
 .page-registration .button.primary .button.secondary {
   margin-top: 4px;
 }
@@ -1682,7 +1693,7 @@ tr:last-child th {
   padding: 12px;
   border-bottom: 1px solid var(--color-border-strong);
   text-align: left;
-  vertical-align: top;
+  vertical-align: middle;
   line-height: 1.5;
 }
 
