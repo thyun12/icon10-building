@@ -742,15 +742,71 @@ tr:last-child th {
 ================================================================ */
 
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 92px 0;
-  background: radial-gradient(circle at top left, var(--color-hero-glow), transparent 36%), linear-gradient(135deg, var(--color-bg-soft-blue) 0%, var(--color-bg) 58%, var(--color-bg-muted) 100%);
+
+  background:
+    radial-gradient(circle at top left,
+      var(--color-hero-glow),
+      transparent 25%),
+    linear-gradient(135deg,
+      var(--color-bg-soft-blue) 0%,
+      var(--color-bg) 58%,
+      var(--color-bg-muted) 100%);
+}
+
+/* Traditional Korean architecture illustration */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+
+  width: min(980px, 60vw);
+  height: 400px;
+
+  background-image:
+    url("../images/icon10-illustration.png");
+  background-position: right center;
+  background-size: auto 360px;
+  background-repeat: no-repeat;
+
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+
+  mask-image:
+    radial-gradient(ellipse 78% 76% at center,
+      #000 52%,
+      transparent 100%);
+
+  -webkit-mask-image:
+    radial-gradient(ellipse 78% 76% at center,
+      #000 52%,
+      transparent 100%);
+
+  pointer-events: none;
 }
 
 .hero-grid {
+  position: relative;
+  z-index: 1;
+
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+  grid-template-columns:
+    minmax(0, 1.3fr) minmax(320px, 0.7fr);
   gap: 48px;
   align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+
+  transform: translateY(95px);
 }
 
 .hero h1 {
@@ -760,6 +816,7 @@ tr:last-child th {
 .hero-subtitle {
   max-width: 720px;
   margin: 0 0 28px;
+
   color: var(--color-muted);
   font-size: 1.2rem;
 }
@@ -768,11 +825,13 @@ tr:last-child th {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+
   margin: 26px 0 32px;
 }
 
 .hero-meta div {
   padding: 18px;
+
   background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -787,8 +846,7 @@ tr:last-child th {
   color: var(--color-text);
 }
 
-.hero-meta span,
-.date-list span {
+.hero-meta span {
   color: var(--color-muted);
 }
 
@@ -807,12 +865,17 @@ tr:last-child th {
   display: flex;
   justify-content: space-between;
   gap: 16px;
+
   padding: 16px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
 .date-list li:last-child {
   border-bottom: 0;
+}
+
+.date-list span {
+  color: var(--color-muted);
 }
 
 .date-list strong {
@@ -823,6 +886,7 @@ tr:last-child th {
 
 .icon-conference-image {
   overflow: hidden;
+
   margin: 24px 0 30px;
   background: var(--color-bg-muted);
   border-radius: var(--radius-md);
@@ -836,8 +900,6 @@ tr:last-child th {
   object-fit: cover;
 }
 
-/* Home: continuous invited-speaker slider */
-
 .speaker-slider {
   position: relative;
   overflow: hidden;
@@ -846,10 +908,13 @@ tr:last-child th {
 
 .speaker-slider-track {
   position: relative;
+
   display: flex;
   gap: 22px;
   overflow-x: auto;
+
   padding: 4px 2px 14px;
+
   cursor: grab;
   user-select: none;
   touch-action: pan-y;
@@ -868,9 +933,11 @@ tr:last-child th {
 .speaker-slide,
 .speaker-slide:visited {
   position: relative;
+
   display: block;
   flex: 0 0 calc((100% - 66px) / 4);
   overflow: hidden;
+
   color: var(--color-bg);
   background: var(--color-bg-muted);
   border-radius: var(--radius-md);
@@ -888,7 +955,13 @@ tr:last-child th {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--color-overlay-dark) 0%, var(--color-overlay-soft) 48%, transparent 72%);
+
+  background:
+    linear-gradient(to top,
+      var(--color-overlay-dark) 0%,
+      var(--color-overlay-soft) 48%,
+      transparent 72%);
+
   pointer-events: none;
 }
 
@@ -899,20 +972,22 @@ tr:last-child th {
 
 .speaker-slide-info {
   position: absolute;
+  z-index: 1;
   right: 20px;
   bottom: 18px;
   left: 20px;
-  z-index: 1;
 }
 
 .speaker-slide-info h3 {
   margin: 0 0 5px;
+
   color: var(--color-bg);
   font-size: 1.2rem;
 }
 
 .speaker-slide-info p {
   margin: 0;
+
   color: var(--color-white-muted);
   font-size: 0.9rem;
   line-height: 1.4;
@@ -922,20 +997,27 @@ tr:last-child th {
   position: absolute;
   top: 50%;
   z-index: 3;
+
   display: grid;
   width: 46px;
   height: 46px;
   padding: 0;
+
   color: var(--color-bg);
   background: var(--color-overlay-dark);
   border: 0;
   border-radius: 50%;
+
   font-size: 2rem;
   line-height: 1;
+
   cursor: pointer;
   place-items: center;
+
   transform: translateY(-50%);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .speaker-slider-prev {
@@ -1894,6 +1976,23 @@ tr:last-child th {
     grid-template-columns: 1fr;
   }
 
+  .hero-content {
+    transform: translateY(20px);
+  }
+
+  .hero::before {
+    top: 20px;
+    left: 0;
+
+    width: 100%;
+    height: 360px;
+
+    background-position: center top;
+    background-size: auto 280px;
+
+    opacity: 0.38;
+  }
+
   .page-speakers .card-grid.three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2114,6 +2213,24 @@ tr:last-child th {
   .section,
   .page-title {
     padding: 52px 0;
+  }
+
+  .hero-content {
+    transform: none;
+  }
+
+  .hero::before {
+    top: 12px;
+    height: 270px;
+
+    background-position: center top;
+    background-size: auto 225px;
+
+    opacity: 0.3;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
   }
 
   .page-title+.section {
