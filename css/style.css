@@ -36,6 +36,7 @@
   --color-hero-glow: rgba(95, 190, 235, 0.22);
   --color-dialog-backdrop: rgba(0, 39, 84, 0.64);
   --shadow-card: 0 18px 45px rgba(0, 65, 145, 0.12);
+  --shadow-card-soft: 0 12px 30px rgba(0, 65, 145, 0.08);
   --shadow-dialog: 0 24px 70px rgba(0, 39, 84, 0.3);
   --shadow-button: 0 10px 22px rgba(20, 135, 200, 0.24);
   --radius-sm: 8px;
@@ -149,7 +150,7 @@ a:focus-visible {
   text-decoration: underline;
 }
 
-/* 이메일 링크 */
+/* Email links */
 a[href^="mailto:"],
 a[href^="mailto:"]:visited {
   color: var(--color-blue);
@@ -248,19 +249,18 @@ a[href^="mailto:"]:visited {
   text-decoration: none;
 }
 
-.logo-mark {
-  display: inline-grid;
-  place-items: center;
+.site-logo-symbol {
+  flex: 0 0 auto;
   width: 42px;
   height: 42px;
-  color: var(--color-bg);
-  background: var(--color-navy);
-  border-radius: var(--radius-md);
-  font-size: 0.9rem;
+  object-fit: contain;
 }
 
-.logo-text {
-  white-space: nowrap;
+.site-logo-wordmark {
+  width: auto;
+  max-width: 128px;
+  height: 25px;
+  object-fit: contain;
 }
 
 .site-nav {
@@ -319,7 +319,7 @@ a[href^="mailto:"]:visited {
   align-items: center;
 }
 
-/* 메뉴 사이에서 마우스가 빠지는 것을 방지하는 공간 */
+/* Keep the pointer inside the dropdown interaction area. */
 .nav-dropdown::after {
   content: "";
   position: absolute;
@@ -334,7 +334,7 @@ a[href^="mailto:"]:visited {
   align-items: center;
 }
 
-/* 기본 상태에서는 드롭다운 숨김 */
+/* Hide the dropdown until hover or keyboard focus. */
 .nav-dropdown-menu {
   position: absolute;
   z-index: 100;
@@ -361,7 +361,7 @@ a[href^="mailto:"]:visited {
     transform 0.2s ease;
 }
 
-/* 마우스오버 또는 키보드 포커스 시 표시 */
+/* Show the dropdown on hover or keyboard focus. */
 .nav-dropdown:hover .nav-dropdown-menu,
 .nav-dropdown:focus-within .nav-dropdown-menu {
   opacity: 1;
@@ -370,7 +370,7 @@ a[href^="mailto:"]:visited {
   transform: translate(-50%, 0);
 }
 
-/* 드롭다운 안의 링크 */
+/* Dropdown links */
 .site-nav .nav-dropdown-menu a {
   display: block;
   padding: 11px 14px;
@@ -433,21 +433,17 @@ a[href^="mailto:"]:visited {
   z-index: 1;
 }
 
-/* .page-title>.container>p:last-of-type {
+.page-title>.container>p:last-child:not(.eyebrow) {
   max-width: 760px;
   margin-bottom: 0;
   color: var(--color-muted);
   font-size: 1.12rem;
 }
- */
 
-/* .page-title p {
-  max-width: 760px;
+.page-title h1:last-child {
   margin-bottom: 0;
-  color: var(--color-muted);
-  font-size: 1.12rem;
 }
- */
+
 /* ================================================================
    06. BUTTONS
 ================================================================ */
@@ -508,6 +504,13 @@ a[href^="mailto:"]:visited {
   border-color: var(--color-blue);
 }
 
+.button[aria-disabled="true"] {
+  opacity: 0.65;
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* ================================================================
    07. SHARED CARDS, TABLES AND LISTS
 ================================================================ */
@@ -515,23 +518,44 @@ a[href^="mailto:"]:visited {
 .hero-card,
 .info-card,
 .speaker-card,
-.contact-card,
-.card {
-  background: var(--color-bg);
+.card,
+.program-status-card,
+.hotel-card,
+.organizer-card,
+.sponsor-area {
   border: 1px solid var(--color-border);
+}
+
+.hero-card,
+.info-card,
+.speaker-card,
+.card,
+.program-status-card,
+.hotel-card {
+  background: var(--color-bg);
+}
+
+.hero-card,
+.info-card,
+.speaker-card,
+.card {
   border-radius: var(--radius-lg);
 }
 
 .info-card,
-.speaker-card,
-.contact-card {
+.speaker-card {
   padding: 24px;
+}
+
+.info-card> :last-child,
+.speaker-card> :last-child,
+.card> :last-child {
+  margin-bottom: 0;
 }
 
 .info-card a,
 .speaker-name-link,
 .committee-name-link,
-.hotel-reference-link,
 .venue-detail-link,
 .venue-card-link {
   font-weight: 750;
@@ -546,8 +570,25 @@ a.venue-card-link:visited {
   color: var(--color-blue);
 }
 
-.table-wrapper,
-.hotel-table-wrapper {
+.speaker-slide img,
+.speaker-photo img,
+.hotel-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.speaker-slide:hover img,
+.speaker-slide:focus-visible img,
+.speaker-card:hover .speaker-photo img,
+.speaker-card:focus-within .speaker-photo img,
+.hotel-card:hover .hotel-card-image img,
+.hotel-card:focus-within .hotel-card-image img {
+  transform: scale(1.04);
+}
+
+.table-wrapper {
   overflow-x: auto;
   margin: 22px 0 34px;
   border: 1px solid var(--color-border);
@@ -580,22 +621,16 @@ tr:last-child th {
   border-bottom: 0;
 }
 
-.check-list,
-.number-list,
-.person-list {
+.check-list {
   margin: 0 0 32px;
   padding-left: 1.2rem;
 }
 
-.check-list li,
-.number-list li,
-.person-list li {
+.check-list li {
   margin-bottom: 8px;
 }
 
-.check-list li::marker,
-.number-list li::marker,
-.person-list li::marker {
+.check-list li::marker {
   color: var(--color-blue);
 }
 
@@ -786,7 +821,7 @@ tr:last-child th {
   white-space: nowrap;
 }
 
-.about-conference-image {
+.icon-conference-image {
   overflow: hidden;
   margin: 24px 0 30px;
   background: var(--color-bg-muted);
@@ -794,16 +829,11 @@ tr:last-child th {
   aspect-ratio: 5 / 3;
 }
 
-.about-conference-image img {
+.icon-conference-image img {
   width: 100%;
   height: 100%;
   max-height: 460px;
   object-fit: cover;
-}
-
-.centered-link {
-  margin-top: 30px;
-  text-align: center;
 }
 
 /* Home: continuous invited-speaker slider */
@@ -863,17 +893,8 @@ tr:last-child th {
 }
 
 .speaker-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   pointer-events: none;
   -webkit-user-drag: none;
-  transition: transform 0.35s ease;
-}
-
-.speaker-slide:hover img,
-.speaker-slide:focus-visible img {
-  transform: scale(1.04);
 }
 
 .speaker-slide-info {
@@ -935,13 +956,8 @@ tr:last-child th {
   transform: translateY(-50%) scale(1.06);
 }
 
-.speaker-slider-actions {
-  margin-top: 22px;
-  text-align: center;
-}
-
 /* ================================================================
-   20. PROGRAM — program.html
+   20-1. PROGRAM — detailed schedule in program-building.html
 ================================================================ */
 
 .program-downloads {
@@ -1048,10 +1064,91 @@ tr:last-child th {
   background: var(--color-bg-muted);
 }
 
+/* Detailed session grid */
+
+.schedule-session {
+  display: block;
+  padding: 0;
+}
+
+.session-grid {
+  width: 100%;
+}
+
+.session-grid-row {
+  display: grid;
+  grid-template-columns:
+    140px minmax(190px, 0.8fr) minmax(260px, 1.2fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.session-grid-row h3,
+.session-grid-row p {
+  margin: 0;
+}
+
+.session-heading-row {
+  padding: 22px 24px;
+}
+
+.session-main-time {
+  color: var(--color-blue);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.session-heading-content {
+  grid-column: 2 / -1;
+}
+
+.session-heading-content h3 {
+  margin: 0;
+}
+
+.session-heading-content .session-chair {
+  margin: 10px 0 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.session-chair {
+  margin: 6px 0 0;
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.schedule-break-label {
+  color: var(--color-blue);
+  font-weight: 650;
+}
+
+.session-talk-row {
+  padding: 14px 24px;
+}
+
+.schedule-item .schedule-talk-time {
+  color: var(--color-muted);
+  font-size: 0.86rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.schedule-talk-speaker {
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.schedule-talk-title {
+  color: var(--color-text);
+  line-height: 1.5;
+}
 
 
 /* ================================================================
-   25. Program: temporary program overview
+   20-2. PROGRAM — temporary program overview
 ================================================================ */
 
 
@@ -1064,19 +1161,13 @@ tr:last-child th {
   overflow: hidden;
   max-width: 1120px;
   margin: 0 auto;
-
-  background: var(--color-bg);
-  border: 1px solid var(--color-light-blue);
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 40px rgb(0 59 113 / 8%);
+  box-shadow: var(--shadow-card-soft);
 }
 
 .program-status-content {
   padding: 42px 46px;
-  background:
-    linear-gradient(135deg,
-      rgb(232 247 255 / 95%),
-      rgb(255 255 255 / 98%));
+  background: linear-gradient(135deg, var(--color-info-bg), var(--color-bg));
 }
 
 .program-status-content .section-label {
@@ -1096,7 +1187,7 @@ tr:last-child th {
 
 .program-status-content .program-status-note {
   margin-top: 16px;
-  color: var(--color-text-muted);
+  color: var(--color-muted);
   font-size: 0.95rem;
 }
 
@@ -1145,15 +1236,9 @@ tr:last-child th {
   color: var(--color-muted);
   background: var(--color-bg-muted);
   border-radius: var(--radius-md);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 5;
   font-weight: 700;
   place-items: center;
-}
-
-.speaker-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .speaker-name-link {
@@ -1173,10 +1258,6 @@ tr:last-child th {
 .registration-fee-table thead tr:last-child th {
   border-bottom: 1px solid var(--color-border);
   vertical-align: middle;
-}
-
-.page-registration .button.primary .button.secondary {
-  margin-top: 4px;
 }
 
 /* ================================================================
@@ -1441,36 +1522,21 @@ tr:last-child th {
 /* 60-3. Accommodation */
 
 .hotel-card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
   margin-top: 40px;
 }
 
 .hotel-card {
   overflow: hidden;
-
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: 0 12px 30px rgb(0 59 113 / 7%);
+  box-shadow: var(--shadow-card-soft);
 }
 
 .hotel-card-image {
+  display: block;
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background: var(--color-bg-muted);
-}
-
-.hotel-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.hotel-card:hover .hotel-card-image img {
-  transform: scale(1.025);
 }
 
 .hotel-card-body {
@@ -1481,19 +1547,6 @@ tr:last-child th {
   margin: 0 0 24px;
   font-size: 1.25rem;
   line-height: 1.4;
-}
-
-.hotel-card-title a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.hotel-card-title a:hover,
-.hotel-card-title a:focus-visible {
-  color: var(--color-blue);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 5px;
 }
 
 .hotel-card-details {
@@ -1521,21 +1574,8 @@ tr:last-child th {
   line-height: 1.55;
 }
 
-.hotel-card-details a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.hotel-card-details a:hover,
-.hotel-card-details a:focus-visible {
-  color: var(--color-blue);
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 4px;
-}
-
 .venue-accommodation-box {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .venue-accommodation-box p:last-child {
@@ -1647,7 +1687,6 @@ tr:last-child th {
 .sponsor-area {
   padding: 20px 24px;
   background: var(--color-bg-muted);
-  border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
 }
 
@@ -1768,19 +1807,6 @@ tr:last-child th {
   margin-top: 30px;
 }
 
-
-
-
-
-.dev-note {
-  padding: 12px 14px;
-  color: #1f0f7e;
-  background: #c3daf7;
-  border: 1px dashed #177099;
-}
-
-
-
 /* ================================================================
    90. RESPONSIVE RULES
 ================================================================ */
@@ -1868,6 +1894,10 @@ tr:last-child th {
     grid-template-columns: 1fr;
   }
 
+  .page-speakers .card-grid.three {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .program-downloads {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1913,7 +1943,7 @@ tr:last-child th {
     gap: 22px;
   }
 
-  /* 여기 아래는 program 준비 후 삭제 */
+  /* Temporary program overview */
   .program-overview {
     padding-top: 36px;
     padding-bottom: 52px;
@@ -1938,6 +1968,46 @@ tr:last-child th {
 }
 
 @media (max-width: 700px) {
+  .session-grid-row {
+    grid-template-columns: 92px minmax(0, 1fr);
+    gap: 6px 14px;
+  }
+
+  .session-heading-row {
+    padding: 20px 18px;
+  }
+
+  .session-heading-row .session-main-time {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .session-heading-row .session-heading-content {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .session-talk-row {
+    padding: 13px 18px;
+  }
+
+  .session-talk-row .schedule-talk-time {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .session-talk-speaker {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .session-talk-title {
+    grid-column: 2;
+    grid-row: 2;
+    color: var(--color-muted);
+    font-size: 0.92rem;
+  }
+
   .venue-layout {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -1981,6 +2051,10 @@ tr:last-child th {
 }
 
 @media (max-width: 600px) {
+  .page-speakers .card-grid.three {
+    grid-template-columns: 1fr;
+  }
+
   .speaker-slider-track {
     gap: 14px;
   }
@@ -2032,7 +2106,7 @@ tr:last-child th {
     width: min(100% - 24px, var(--max-width));
   }
 
-  .logo-text {
+  .site-logo-wordmark {
     display: none;
   }
 
