@@ -1105,6 +1105,10 @@ tr:last-child th {
 }
 
 .schedule-list {
+  --schedule-time-column: clamp(92px, 14vw, 140px);
+  --schedule-column-gap: clamp(14px, 2.2vw, 24px);
+  --schedule-inline-padding: clamp(18px, 2.3vw, 24px);
+
   overflow: hidden;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -1113,9 +1117,9 @@ tr:last-child th {
 
 .schedule-item {
   display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  gap: 24px;
-  padding: 22px 24px;
+  grid-template-columns: var(--schedule-time-column) minmax(0, 1fr);
+  gap: var(--schedule-column-gap);
+  padding: 22px var(--schedule-inline-padding);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1160,8 +1164,8 @@ tr:last-child th {
 .session-grid-row {
   display: grid;
   grid-template-columns:
-    140px minmax(190px, 0.8fr) minmax(260px, 1.2fr);
-  gap: 24px;
+    var(--schedule-time-column) minmax(190px, 0.8fr) minmax(260px, 1.2fr);
+  gap: var(--schedule-column-gap);
   align-items: start;
 }
 
@@ -1171,7 +1175,7 @@ tr:last-child th {
 }
 
 .session-heading-row {
-  padding: 22px 24px;
+  padding: 22px var(--schedule-inline-padding);
 }
 
 .session-main-time {
@@ -1208,7 +1212,7 @@ tr:last-child th {
 }
 
 .session-talk-row {
-  padding: 14px 24px;
+  padding: 14px var(--schedule-inline-padding);
 }
 
 .schedule-item .schedule-talk-time {
@@ -2068,12 +2072,12 @@ tr:last-child th {
 
 @media (max-width: 700px) {
   .session-grid-row {
-    grid-template-columns: 92px minmax(0, 1fr);
-    gap: 6px 14px;
+    grid-template-columns: var(--schedule-time-column) minmax(0, 1fr);
+    gap: 6px var(--schedule-column-gap);
   }
 
   .session-heading-row {
-    padding: 20px 18px;
+    padding: 20px var(--schedule-inline-padding);
   }
 
   .session-heading-row .session-main-time {
@@ -2087,7 +2091,7 @@ tr:last-child th {
   }
 
   .session-talk-row {
-    padding: 13px 18px;
+    padding: 13px var(--schedule-inline-padding);
   }
 
   .session-talk-row .schedule-talk-time {
@@ -2258,10 +2262,60 @@ tr:last-child th {
     grid-template-columns: 1fr;
   }
 
+  /* Program schedule: stack time and content on small screens */
+
   .schedule-item {
     grid-template-columns: 1fr;
     gap: 8px;
     padding: 18px;
+  }
+
+  .schedule-session {
+    display: block;
+    padding: 0;
+  }
+
+  .session-heading-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .session-heading-row .session-main-time,
+  .session-heading-row .session-heading-content {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .session-heading-row .session-main-time {
+    margin-bottom: 2px;
+  }
+
+  /* Keep individual talks in two columns on mobile. */
+
+  .session-talk-row {
+    grid-template-columns: var(--schedule-time-column) minmax(0, 1fr);
+    gap: 6px var(--schedule-column-gap);
+  }
+
+  .session-talk-row .schedule-talk-time {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    margin-bottom: 0;
+  }
+
+  .session-talk-row .schedule-talk-speaker {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .session-talk-row .schedule-talk-title {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .session-talk-row .schedule-break-label {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .program-day-heading {
