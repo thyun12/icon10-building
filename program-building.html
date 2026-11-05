@@ -5,7 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Program for ICoN10." />
+  <meta name="robots" content="noindex, nofollow" />
   <title>Program | ICoN10</title>
+  <link rel="icon" type="image/png" href="images/icon10-logo.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -13,8 +15,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="site-logo" href="index.html" aria-label="Conference home">
-        <span class="logo-mark">ICoN</span>
-        <span class="logo-text">ICoN10</span>
+        <img class="site-logo-wordmark" src="images/icon10-wordmark.png" alt="">
       </a>
 
       <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -47,19 +48,19 @@
   <main class="page-main">
     <section class="page-title">
       <div class="container">
-        <p class="eyebrow">Conference</p>
+        <p class="eyebrow">Conference Information</p>
         <h1>Program</h1>
-        <div class="program-downloads" aria-label="Program documents">
+        <!-- <div class="program-downloads" aria-label="Program documents">
           <a class="program-download-button" href="files/full-program.pdf" target="_blank" rel="noopener noreferrer">
             Full Program
           </a>
 
-          <!-- <a class="program-download-button" href="files/abstract-booklet.pdf" target="_blank" rel="noopener noreferrer"> -->
+          <a class="program-download-button" href="files/abstract-booklet.pdf" target="_blank" rel="noopener noreferrer">
           <a class="program-download-button is-preparing" href="#" aria-disabled="true">
             Abstract Booklet
           </a>
 
-          <!-- <a class="program-download-button" href="files/poster-numbers.pdf" target="_blank" rel="noopener noreferrer"> -->
+          <a class="program-download-button" href="files/poster-numbers.pdf" target="_blank" rel="noopener noreferrer">
           <a class="program-download-button is-preparing" href="#" aria-disabled="true">
             Posters
           </a>
@@ -67,7 +68,7 @@
           <button class="program-download-button" id="presenter-info-open" type="button">
             Presentation Guidelines
           </button>
-        </div>
+        </div> -->
       </div>
     </section>
 
@@ -105,10 +106,6 @@
           <li><strong>Support:</strong>
             Session convenors will assist with uploading your presentation.
           </li>
-
-          <li><strong>Backup:</strong>
-            Please bring a backup copy of your presentation on a USB memory stick.
-          </li>
         </ul>
 
         <h3>Poster Presentations</h3>
@@ -135,8 +132,8 @@
           <li>
             <strong>Poster Presentation:</strong>
             <ul>
-              <li>Odd-numbered posters: Monday, 17:30–20:00</li>
-              <li>Even-numbered posters: Wednesday, 14:30–17:00</li>
+              <li>Odd-numbered posters: Monday, 17:30–19:30</li>
+              <li>Even-numbered posters: Wednesday, 14:30–16:30</li>
             </ul>
           </li>
 
@@ -151,6 +148,7 @@
     <section class="section program-section">
       <div class="container">
         <div class="program-days">
+
           <!-- June 6 -->
           <section class="program-day" id="june-6">
             <div class="program-day-heading">
@@ -159,23 +157,109 @@
             </div>
 
             <div class="schedule-list">
-              <article class="schedule-item">
-                <time>09:00–10:00</time>
-                <div class="schedule-content">
-                  <h3>Welcome Remarks</h3>
-                  <p class="schedule-meta">Chair: Sukhwan Yoon</p>
+              <!-- Early Career Talk -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">09:30–12:30</time>
+                    <div class="session-heading-content">
+                      <h3>Early Career Researcher Session (Talk)</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong> Brit Abrahamson · Kiseok Lee · Mingsheng Jia
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:30–10:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:00–10:15</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:15–10:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:30–10:45</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:45–11:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:00–11:30</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:30–11:45</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:45–12:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:00–12:15</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:15–12:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+                   -->
                 </div>
               </article>
 
-              <article class="schedule-item">
-                <time>10:00–12:30</time>
-                <div class="schedule-content">
-                  <h3>Early Career Researcher Workshop</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
-                  <p>[Speaker] — [Title]</p>
-                </div>
-              </article>
-
+              <!-- Lunch -->
               <article class="schedule-item schedule-break">
                 <time>12:30–14:00</time>
                 <div class="schedule-content">
@@ -183,21 +267,59 @@
                 </div>
               </article>
 
-              <article class="schedule-item">
-                <time>14:00–17:30</time>
+              <!-- Early Career Panel -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">14:00–15:00</time>
+                    <div class="session-heading-content">
+                      <h3>Early Career Researcher Session (Panel discussion)</h3>
+                      <!-- 
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                      </p>
+                      -->
+                    </div>
+                  </div>
+              </article>
+
+              <!-- Coffee Break -->
+              <article class="schedule-item schedule-break">
+                <time>15:00–15:30</time>
                 <div class="schedule-content">
-                  <h3>Early Career Researcher Workshop</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
-                  <p>[Speaker] — [Title]</p>
+                  <h3>Coffee Break</h3>
                 </div>
               </article>
 
+              <!-- Opening -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">15:30–17:00</time>
+                    <div class="session-heading-content">
+                      <h3>Opening Session</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong> Sukhwan Yoon <em>(KAIST, Republic of Korea)</em>
+                      </p>
+                    </div>
+                  </div>
 
-              <article class="schedule-item">
-                <time>17:30–19:00</time>
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time"></time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Plenary Speaker – Satoshi Okabe</strong><br>
+                      <em>Hokkaido University, Japan</em>
+                    </p>
+                    <p class="schedule-talk-title"></p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Icebreaker -->
+              <article class="schedule-item schedule-break">
+                <time>17:00–19:00</time>
                 <div class="schedule-content">
-                  <h3>Welcome Reception</h3>
-                  <p class="schedule-meta">Location: [Venue]</p>
+                  <h3>Icebreaker</h3>
                 </div>
               </article>
             </div>
@@ -211,16 +333,102 @@
             </div>
 
             <div class="schedule-list">
-              <article class="schedule-item">
-                <time>09:30–12:30</time>
-                <div class="schedule-content">
-                  <h3>S1 — [Session title]</h3>
-                  <p class="schedule-meta">Chair: [Name] · Location: [Room]</p>
-                  <p>[Speaker] — [Title]</p>
-                  <p>[Speaker] — [Title]</p>
+              <!-- Session 1 -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">09:00–12:30</time>
+                    <div class="session-heading-content">
+                      <h3>S1 — Physiology, Metabolism, and Biochemistry</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Boran Kartal <em>(Max Planck Institute for Marine Microbiology, Germany)</em> ·
+                        Linda Bergaust <em>(Norwegian University of Life Sciences, Norway)</em>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:00–09:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Invited Speaker - Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:40–10:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:00–10:20</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:20–10:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:40–11:10</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:10–11:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:30–11:50</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:50–12:10</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:10–12:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>               
+                  -->
                 </div>
               </article>
 
+              <!-- Lunch -->
               <article class="schedule-item schedule-break">
                 <time>12:30–14:00</time>
                 <div class="schedule-content">
@@ -228,16 +436,103 @@
                 </div>
               </article>
 
-              <article class="schedule-item">
-                <time>14:00–17:30</time>
-                <div class="schedule-content">
-                  <h3>S2 — [Session title]</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
+              <!-- Session 2 -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">14:00–17:30</time>
+                    <div class="session-heading-content">
+                      <h3>S2 — Terrestrial Nitrogen Cycling</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Graeme Nicol <em>(University of Lyon, France)</em>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">14:00–14:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Invited Speaker - Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">14:40–15:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">15:00–15:20</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">15:20–15:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">15:40–16:10</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">16:10–16:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">16:30–16:50</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">16:50–17:10</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">17:10–17:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+                  -->
                 </div>
               </article>
 
+              <!-- Poster Session -->
               <article class="schedule-item">
-                <time>17:30–20:00</time>
+                <time>17:30–19:30</time>
                 <div class="schedule-content">
                   <h3>Poster Session</h3>
                   <p class="schedule-meta">Odd Numbers</p>
@@ -254,14 +549,102 @@
             </div>
 
             <div class="schedule-list">
-              <article class="schedule-item">
-                <time>09:00–12:30</time>
-                <div class="schedule-content">
-                  <h3>S3 — [Session title]</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
+              <!-- Session 3 -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">09:00–12:30</time>
+                    <div class="session-heading-content">
+                      <h3>S3 — Advances in Experimental and Computational Methods</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Holger Daims <em>(University of Vienna, Austria)</em> ·
+                        Willm Martens-Habbena <em>(University of Florida, United States)</em>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:00–09:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Invited Speaker - Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:40–10:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:00–10:20</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:20–10:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:40–11:10</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:10–11:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:30–11:50</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:50–12:10</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:10–12:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+                  -->
                 </div>
               </article>
 
+              <!-- Free Time -->
               <article class="schedule-item schedule-break">
                 <time>12:30–</time>
                 <div class="schedule-content">
@@ -279,14 +662,102 @@
             </div>
 
             <div class="schedule-list">
-              <article class="schedule-item">
-                <time>09:00–12:30</time>
-                <div class="schedule-content">
-                  <h3>S4 — [Session title]</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
+              <!-- Session 4 -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">09:00–12:30</time>
+                    <div class="session-heading-content">
+                      <h3>S4 — Marine and Freshwater Nitrogen Cycling</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Christopher Francis <em>(Stanford University, United States)</em> ·
+                        Xin Sun <em>(University of Pennsylvania, United States)</em>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:00–09:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Invited Speaker - Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:40–10:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:00–10:20</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:20–10:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:40–11:10</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:10–11:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:30–11:50</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:50–12:10</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:10–12:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+                  -->
                 </div>
               </article>
 
+              <!-- Lunch -->
               <article class="schedule-item schedule-break">
                 <time>12:30–14:00</time>
                 <div class="schedule-content">
@@ -294,19 +765,21 @@
                 </div>
               </article>
 
+              <!-- Poster Session -->
               <article class="schedule-item">
-                <time>14:30–17:00</time>
+                <time>14:30–16:30</time>
                 <div class="schedule-content">
                   <h3>Poster Session</h3>
                   <p class="schedule-meta">Even Numbers</p>
                 </div>
               </article>
 
+              <!-- Conference Dinner -->
               <article class="schedule-item schedule-break">
                 <time>19:00–21:00</time>
                 <div class="schedule-content">
                   <h3>Conference Dinner</h3>
-                  <p class="schedule-meta">Location: [Venue]</p>
+                  <!-- <p class="schedule-meta">Location: </p> -->
                 </div>
               </article>
             </div>
@@ -320,14 +793,102 @@
             </div>
 
             <div class="schedule-list">
-              <article class="schedule-item">
-                <time>09:00–12:30</time>
-                <div class="schedule-content">
-                  <h3>S5 — [Session title]</h3>
-                  <p class="schedule-meta">Chair: [Name]</p>
+              <!-- Session 5 -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">09:00–12:30</time>
+                    <div class="session-heading-content">
+                      <h3>S5 — Nitrogen Control an Climate Change</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Sukhwan Yoon <em>(KAIST, Republic of Korea)</em> ·
+                        Michele Laureni <em>(Delft University of Technology, Netherlands)</em>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- 
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:00–09:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Invited Speaker - Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">09:40–10:00</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:00–10:20</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:20–10:40</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">10:40–11:10</time>
+                    <p class="schedule-break-label">Coffee Break</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:10–11:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:30–11:50</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">11:50–12:10</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time">12:10–12:30</time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Speaker</strong><br>
+                      <em>Institution</em>
+                    </p>
+                    <p class="schedule-talk-title">Title</p>
+                  </div>
+                  -->
                 </div>
               </article>
 
+              <!-- Lunch -->
               <article class="schedule-item schedule-break">
                 <time>12:30–14:00</time>
                 <div class="schedule-content">
@@ -335,18 +896,32 @@
                 </div>
               </article>
 
-              <article class="schedule-item">
-                <time>14:00–18:00</time>
-                <div class="schedule-content">
-                  <h3>Closing Session</h3>
-                  <p class="schedule-meta">Closing remarks and ICoN11 announcement</p>
+              <!-- Closing -->
+              <article class="schedule-item schedule-session">
+                <div class="session-grid">
+                  <div class="session-grid-row session-heading-row">
+                    <time class="session-main-time">14:00–17:00</time>
+                    <div class="session-heading-content">
+                      <h3>Closing Session</h3>
+                      <p class="session-chair">
+                        <strong>Chair</strong>
+                        Christopher Francis <em>(Stanford University, United States)</em>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="session-grid-row session-talk-row">
+                    <time class="schedule-talk-time"></time>
+                    <p class="schedule-talk-speaker">
+                      <strong>Plenary Speaker – Bess Ward</strong><br>
+                      <em>Princeton University, United States</em>
+                    </p>
+                    <p class="schedule-talk-title"></p>
+                  </div>
                 </div>
               </article>
-
-
             </div>
           </section>
-
         </div>
       </div>
     </section>
