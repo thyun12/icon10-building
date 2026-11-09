@@ -508,8 +508,9 @@ a[href^="mailto:"]:visited {
   opacity: 0.65;
   box-shadow: none;
   cursor: not-allowed;
-  pointer-events: none;
+  /* pointer-events: none; */
 }
+
 
 /* ================================================================
    07. SHARED CARDS, TABLES AND LISTS
@@ -770,7 +771,7 @@ tr:last-child th {
 
   background-image:
     url("../images/icon10-illustration.png");
-  background-position: right center;
+  background-position: right;
   background-size: auto 360px;
   background-repeat: no-repeat;
 
@@ -1427,6 +1428,74 @@ tr:last-child th {
 .presenter-guideline-list li::marker,
 .presenter-guideline-list strong {
   color: var(--color-navy);
+}
+
+/* Abstract submission tabs */
+.submission-methods {
+  margin-top: 28px;
+}
+
+.submission-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: #eef6fa;
+}
+
+.submission-tab {
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: calc(var(--radius-md) - 4px);
+  background: transparent;
+  color: var(--color-blue-dark);
+  font-weight: 750;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.submission-tab:hover {
+  background: #dceef7;
+}
+
+.submission-tab[aria-selected="true"] {
+  background: var(--color-blue-dark);
+  color: #fff;
+}
+
+.submission-tab:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+.submission-panel[hidden] {
+  display: none;
+}
+
+.submission-panel .info-box {
+  margin: 16px 0 22px;
+}
+
+.submission-panel .info-box p {
+  margin: 0;
+}
+
+.submission-panel .info-box p + p {
+  margin-top: 10px;
+}
+
+.submission-email-address {
+  overflow-wrap: anywhere;
+}
+
+.submission-email-instructions {
+  padding: 10px 14px;
+  border-left: 3px solid var(--color-note-border);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 /* ================================================================
