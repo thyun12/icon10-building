@@ -55,7 +55,6 @@ document.querySelectorAll('.site-nav a').forEach((link) => {
   }
 });
 
-
 /* ================================================================
    10. HOME — continuous invited-speaker slider
 ================================================================ */
@@ -404,8 +403,8 @@ document
    50. ABSTRACT SUBMISSION — presenter information dialog
 ================================================================ */
 
-const presenterInfoOpen = document.getElementById(
-  'presenter-info-open'
+const presenterInfoButtons = document.querySelectorAll(
+  '#presenter-info-open, #email-presenter-info-open'
 );
 const presenterModal = document.getElementById(
   'presenter-modal'
@@ -415,13 +414,13 @@ const presenterModalClose = document.getElementById(
 );
 
 if (
-  presenterInfoOpen &&
+  presenterInfoButtons.length &&
   presenterModal &&
   presenterModalClose
 ) {
-  presenterInfoOpen.addEventListener('click', () => {
-    presenterModal.showModal();
-  });
+  for (const button of presenterInfoButtons) {
+    button.addEventListener('click', () => presenterModal.showModal());
+  }
 
   presenterModalClose.addEventListener('click', () => {
     presenterModal.close();
@@ -433,3 +432,54 @@ if (
     }
   });
 }
+
+/* Abstract submission method tabs */
+(() => {
+  const tabList = document.querySelector('.submission-tabs');
+  if (!tabList) return;
+  const tabs = Array.from(tabList.querySelectorAll('[role="tab"]'));
+
+  function activateTab(selected, moveFocus = false) {
+    for (const tab of tabs) {
+      const active = tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+    }
+    if (moveFocus) selected.focus();
+  }
+
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => activateTab(tab));
+    tab.addEventListener('keydown', (event) => {
+      const index = tabs.indexOf(tab);
+      const positions = {
+        ArrowLeft: (index + tabs.length - 1) % tabs.length,
+        ArrowRight: (index + 1) % tabs.length,
+        Home: 0,
+        End: tabs.length - 1,
+      };
+      if (!Object.hasOwn(positions, event.key)) return;
+      event.preventDefault();
+      activateTab(tabs[positions[event.key]], true);
+    });
+  }
+
+  const templateDialog = document.getElementById('online-template-dialog');
+  if (!templateDialog) return;
+
+  document.getElementById('online-template-open').addEventListener('click', () => {
+    templateDialog.showModal();
+  });
+  document.getElementById('online-template-download').addEventListener('click', () => {
+    templateDialog.close();
+  });
+  document.getElementById('online-template-email').addEventListener('click', () => {
+    templateDialog.close();
+    activateTab(document.getElementById('submission-email-tab'), true);
+  });
+  templateDialog.addEventListener('click', (event) => {
+    if (event.target === templateDialog) templateDialog.close();
+  });
+
+})();
